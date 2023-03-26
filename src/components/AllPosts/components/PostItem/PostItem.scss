@@ -1,0 +1,17 @@
+.PostItem{
+  width: 100%;
+  margin: .25em 0;
+
+  b{
+    color: var(--bs-primary);
+    text-decoration: underline;
+  }
+
+  .btns-container{
+    display: flex;
+
+    button:first-child{
+      margin-right: .5em;
+    }
+  }
+}
