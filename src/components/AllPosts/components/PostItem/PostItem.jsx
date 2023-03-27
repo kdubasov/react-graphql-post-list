@@ -2,10 +2,14 @@ import React, {useState} from 'react';
 import {Alert, Button} from "react-bootstrap";
 import "./PostItem.scss";
 import ModalDelete from "../ModalDelete/ModalDelete.jsx";
+import ModalRedact from "../ModalRedact/ModalRedact.jsx";
+import Comments from "../Comments/Comments.jsx";
 
-const PostItem = ({data}) => {
+const PostItem = ({data,comms}) => {
 
+    //modals
     const [deleteModal, setDeleteModal] = useState(false);
+    const [redactModal, setRedactModal] = useState(false);
 
     return (
         <Alert variant={"secondary"} className={"PostItem p-2 small"}>
@@ -13,7 +17,7 @@ const PostItem = ({data}) => {
             Просмотры: <b>{data.views}</b>
 
             <div className="btns-container">
-                <Button size={"sm"} variant={"secondary"}>
+                <Button onClick={() => setRedactModal(true)} size={"sm"} variant={"secondary"}>
                     Изменить
                 </Button>
 
@@ -22,9 +26,18 @@ const PostItem = ({data}) => {
                 </Button>
             </div>
 
+            {/*comments*/}
+            <Comments data={comms} />
+
             <ModalDelete
                 handleClose={() => setDeleteModal(false)}
                 show={deleteModal}
+                data={data}
+            />
+
+            <ModalRedact
+                handleClose={() => setRedactModal(false)}
+                show={redactModal}
                 data={data}
             />
         </Alert>

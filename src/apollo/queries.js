@@ -39,3 +39,16 @@ export const REMOVE_POST = gql`
         }
     }
 `;
+
+
+// comments
+export const ALL_COMMENTS = gql`
+    query AllComments {
+        allComments {
+            id
+            post_id
+            body
+            date
+        }
+    }
+`;
