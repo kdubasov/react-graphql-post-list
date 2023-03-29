@@ -1,0 +1,15 @@
+.AddComment{
+  form{
+    display: flex;
+    align-items: center;
+    margin-top: .5em;
+    padding: 1em;
+    border-radius: .5em;
+    border: 1px solid var(--bs-gray-500);
+
+    .btn.btn-primary{
+      width: 25%;
+      margin-left: .5em;
+    }
+  }
+}

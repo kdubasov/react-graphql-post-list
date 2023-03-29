@@ -4,6 +4,7 @@ import "./PostItem.scss";
 import ModalDelete from "../ModalDelete/ModalDelete.jsx";
 import ModalRedact from "../ModalRedact/ModalRedact.jsx";
 import Comments from "../Comments/Comments.jsx";
+import AddComment from "../../../AddComment/AddComment.jsx";
 
 const PostItem = ({data,comms}) => {
 
@@ -28,6 +29,9 @@ const PostItem = ({data,comms}) => {
 
             {/*comments*/}
             <Comments data={comms} />
+
+            {/*add post*/}
+            <AddComment postId={data.id} />
 
             <ModalDelete
                 handleClose={() => setDeleteModal(false)}

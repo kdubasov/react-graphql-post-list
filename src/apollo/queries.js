@@ -3,10 +3,10 @@ import {gql} from "@apollo/client";
 export const ALL_POSTS = gql`
     query AllPosts {
         allPosts {
-            id
-            title
-            views
-            user_id
+            id,
+            title,
+            views,
+            user_id,
         }
     }
 `;
@@ -16,7 +16,7 @@ export const ADD_POST = gql`
         createPost(title: $title, views: $views, user_id: $user_id) {
             user_id,
             title,
-            views
+            views,
         }
     }
 `;
@@ -27,7 +27,7 @@ export const UPDATE_POST = gql`
             id,
             title,
             views,
-            user_id
+            user_id,
         }
     }
 `;
@@ -45,10 +45,20 @@ export const REMOVE_POST = gql`
 export const ALL_COMMENTS = gql`
     query AllComments {
         allComments {
-            id
-            post_id
-            body
-            date
+            id,
+            post_id,
+            body,
+            date,
+        }
+    }
+`;
+
+export const ADD_COMMENT = gql`
+    mutation AddComment($post_id:ID!, $body:String!, $date:String!,){
+        createComment(post_id: $post_id, body: $body, date: $date,) {
+            post_id,
+            body,
+            date,
         }
     }
 `;
